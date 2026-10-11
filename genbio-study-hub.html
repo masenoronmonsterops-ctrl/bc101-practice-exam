@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff8df">
+  <title>BC 101 Study Hub</title>
+  <style>
+    :root{--ink:#25303b;--muted:#64707c;--paper:#fffdf8;--yellow:#ffe99a;--yellow2:#fff7d6;--pink:#f7d7df;--sage:#dcebdc;--blue:#dcebf6;--navy:#24425f;--green:#2f6b4f;--red:#a33b45;--line:#d8d4c9;--shadow:0 14px 36px rgba(52,52,40,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#fff9df 0,#fffdf8 36%,#f8fbfa 100%);color:var(--ink);font-family:ui-rounded,"Avenir Next","Segoe UI",Arial,sans-serif;min-height:100vh}
+    button,input{font:inherit}.shell{width:min(1050px,100%);margin:auto;padding:18px 16px 96px}.hero{background:radial-gradient(circle at 90% 0,#f5cbd7 0 18%,transparent 19%),linear-gradient(135deg,#fff3b9,#fffdf4 54%,#dbeee1);border:1px solid #e3d9b9;border-radius:28px;padding:26px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden}.eyebrow{font-weight:900;letter-spacing:.12em;color:var(--green);font-size:.78rem}.hero h1{font-size:clamp(2rem,8vw,4.2rem);line-height:.96;margin:.35rem 0 .8rem;max-width:720px}.hero p{max-width:700px;line-height:1.55;margin:0;color:#46515b}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:999px;padding:12px 17px;font-weight:800;cursor:pointer;transition:.2s;box-shadow:0 5px 12px rgba(36,66,95,.10)}.btn:hover{transform:translateY(-1px)}.primary{background:var(--navy);color:white}.secondary{background:white;color:var(--navy);border:1px solid #b8c8d6}.danger{background:#fde8ea;color:var(--red)}
+    .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:sticky;top:0;z-index:5;padding:12px 0;background:linear-gradient(#fffdf8f2,#fffdf8e5);backdrop-filter:blur(10px)}.tab{border:1px solid var(--line);background:white;border-radius:15px;padding:12px 8px;font-weight:850;color:#4c5660;cursor:pointer}.tab.active{background:var(--navy);color:white;border-color:var(--navy)}
+    .view{display:none}.view.active{display:block}.section-title{margin:30px 0 6px;font-size:clamp(1.6rem,5vw,2.5rem)}.section-intro{margin:0 0 18px;color:var(--muted);line-height:1.55}
+    .infographic{border-radius:26px;padding:18px;background:white;border:1px solid var(--line);box-shadow:var(--shadow);margin:18px 0}.info-head{display:flex;align-items:center;gap:13px;margin-bottom:14px}.badge{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:1.7rem}.info-head h3{margin:0;font-size:1.5rem}.info-head p{margin:4px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.card{border:1px solid var(--line);border-radius:18px;padding:14px;background:var(--paper);line-height:1.42}.card h4{margin:0 0 8px;font-size:1rem}.card p{margin:0;color:#46515b}.card ul{margin:7px 0 0;padding-left:20px}.card li{margin:4px 0}.yellow{background:var(--yellow2)}.pink{background:#fff0f3}.sage{background:#eef7ef}.blue{background:#eef7fc}.formula{font-weight:900;text-align:center;font-size:1.04rem;color:var(--navy);padding:12px;border:2px dashed #9ab0c1;border-radius:14px;background:white}.arrowline{display:flex;align-items:center;flex-wrap:wrap;gap:7px;font-weight:850;color:var(--navy)}.arrowline span{padding:7px 9px;background:white;border:1px solid #cbd5dc;border-radius:10px}.arrowline b{color:var(--green)}
+    .study-wrap,.exam-wrap{margin-top:20px;background:white;border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);overflow:hidden}.study-toolbar,.exam-top{padding:15px;background:#f5f4ef;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{padding:8px 11px;border-radius:999px;border:1px solid #cfd4d6;background:white;font-weight:800;cursor:pointer}.pill.active{color:white;background:var(--green);border-color:var(--green)}.progress{height:10px;background:#e9e9e4;overflow:hidden;border-radius:999px;flex:1;min-width:150px}.bar{height:100%;width:0;background:linear-gradient(90deg,#f2bd46,#e698ae,#5d9c79);transition:.3s}.study-card{padding:25px 22px;min-height:430px}.unit-tag{display:inline-block;padding:6px 10px;border-radius:999px;font-size:.78rem;font-weight:900;background:var(--yellow)}.study-card h3{font-size:clamp(1.6rem,5vw,2.4rem);margin:14px 0 9px}.study-card .meaning{font-size:1.08rem;line-height:1.65}.remember{margin:20px 0 0;padding:15px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.55}.terms{margin-top:14px;color:var(--muted);line-height:1.5}.nav-row{display:flex;justify-content:space-between;gap:10px;padding:16px 22px;background:#faf9f5;border-top:1px solid var(--line)}
+    .exam-body{padding:23px 22px;min-height:450px}.counter{font-weight:900;color:var(--green)}.question{font-size:clamp(1.25rem,4vw,1.65rem);line-height:1.35;margin:14px 0 18px}.options{display:grid;gap:10px}.option{width:100%;text-align:left;border:1px solid #cfd6d9;background:white;border-radius:15px;padding:14px;cursor:pointer;font-weight:700;line-height:1.35}.option:hover{border-color:#7093aa;background:#f6fbff}.option.correct{background:#e4f4e7;border-color:#62a774;color:#245b35}.option.wrong{background:#fde8ea;border-color:#d57b86;color:#7f2631}.feedback{margin-top:16px;padding:14px;border-radius:14px;display:none;line-height:1.5}.feedback.show{display:block}.feedback.good{background:#e7f5e9;color:#245b35}.feedback.bad{background:#fdecee;color:#7f2631}.id-input{display:flex;gap:9px;flex-wrap:wrap}.id-input input{flex:1;min-width:220px;border:2px solid #ccd4d5;border-radius:14px;padding:14px;background:white}.id-input input:focus{outline:3px solid #d9ebf8;border-color:#678ba4}.score-card{text-align:center;padding:35px 20px}.score-card .big{font-size:4rem;font-weight:950;color:var(--navy)}.score-card h3{font-size:1.8rem}.score-card p{color:var(--muted)}
+    .tiny{font-size:.86rem;color:var(--muted)}.footer{text-align:center;color:var(--muted);margin-top:28px;font-size:.86rem}.hide{display:none!important}
+    @media(max-width:720px){.shell{padding:10px 10px 86px}.hero{border-radius:22px;padding:22px 17px}.tabs{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.study-card,.exam-body{padding:20px 16px}.nav-row{padding:14px 16px}.tab{font-size:.9rem}.info-head{align-items:flex-start}}
+    @media print{.tabs,.hero-actions,.nav-row,.study-toolbar,.exam-wrap,.footer{display:none!important}.view{display:block!important}.shell{width:100%;padding:0}.hero,.infographic{box-shadow:none;break-inside:avoid}.hero{margin-bottom:20px}.study-wrap{display:none}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="eyebrow">BC 101 VISUAL REVIEW</div>
+    <h1>Study without the overwhelm.</h1>
+    <p>A cute, simple, and complete review hub for <strong>Cellular Respiration and Photosynthesis</strong>, <strong>Plant Morphology and Physiology</strong>, and <strong>Animal Morphology and Physiology</strong>.</p>
+    <div class="hero-actions"><button class="btn primary" onclick="showView('study')">Start tap-next guide</button><button class="btn secondary" onclick="downloadOffline()">Download for offline use</button></div>
+  </header>
+
+  <nav class="tabs" aria-label="Study hub sections">
+    <button class="tab active" data-view="infographics">Infographics</button>
+    <button class="tab" data-view="study">Tap-next guide</button>
+    <button class="tab" data-view="mcq">MCQ exam</button>
+    <button class="tab" data-view="identification">Identification</button>
+  </nav>
+
+  <section id="infographics" class="view active">
+    <h2 class="section-title">Visual cheat sheets</h2><p class="section-intro">Screenshot each section for fast review. Scientific terms from your lessons are retained, with short corrections where the slides could be misleading.</p>
+    <article class="infographic">
+      <div class="info-head"><div class="badge yellow">⚡</div><div><h3>Energy Transformation</h3><p>ATP, Cellular Respiration, Fermentation, and Photosynthesis</p></div></div>
+      <div class="grid">
+        <div class="card yellow"><h4>ATP ADP Cycle</h4><p><strong>ATP</strong> is the cell's energy currency. Hydrolysis removes a phosphate: <strong>ATP + H2O → ADP + Pi + energy</strong>.</p></div>
+        <div class="card blue"><h4>Cellular Respiration order</h4><div class="arrowline"><span>Glycolysis</span><b>›</b><span>Pyruvate oxidation</span><b>›</b><span>Krebs Cycle</span><b>›</b><span>ETC + Chemiosmosis</span></div></div>
+        <div class="card"><h4>Glycolysis</h4><p><strong>Location:</strong> cytosol<br><strong>Net:</strong> 2 pyruvate, 2 ATP, 2 NADH<br><strong>Cue:</strong> invest → split → payoff</p></div>
+        <div class="card"><h4>Krebs Cycle per turn</h4><p>Acetyl-CoA enters; oxaloacetate is regenerated. Produces <strong>3 NADH, 1 FADH2, 1 ATP or GTP, 2 CO2</strong>. No NADPH.</p></div>
+        <div class="card blue"><h4>ETC and Chemiosmosis</h4><p>NADH and FADH2 donate electrons. H+ is pumped, then flows through <strong>ATP synthase</strong>. Oxygen is the final electron acceptor and forms H2O.</p></div>
+        <div class="card pink"><h4>Fermentation</h4><p>Main purpose: regenerate <strong>NAD+</strong> so Glycolysis continues. Types: <strong>Lactic Acid Fermentation</strong> and <strong>Alcohol Fermentation</strong>.</p></div>
+        <div class="card sage"><h4>Photosynthesis</h4><div class="formula">6CO2 + 6H2O + light → C6H12O6 + 6O2</div></div>
+        <div class="card sage"><h4>Two stages</h4><p><strong>Light Dependent Reactions:</strong> thylakoid membrane; make ATP, NADPH, O2.<br><strong>Calvin Cycle:</strong> stroma; uses CO2, ATP, NADPH to make G3P.</p></div>
+      </div>
+    </article>
+
+    <article class="infographic">
+      <div class="info-head"><div class="badge sage">🌱</div><div><h3>Plant Morphology and Physiology</h3><p>Water balance, specialized structures, transport, nutrients, hormones</p></div></div>
+      <div class="grid">
+        <div class="card blue"><h4>Plant cell water response</h4><p><strong>Hypotonic:</strong> turgid<br><strong>Isotonic:</strong> flaccid<br><strong>Hypertonic:</strong> plasmolysis</p></div>
+        <div class="card sage"><h4>Specialized plant parts</h4><ul><li><strong>Root hairs:</strong> absorption area</li><li><strong>Root nodules:</strong> nitrogen-fixing bacteria</li><li><strong>Rhizome:</strong> starch and protein storage</li><li><strong>Prop roots:</strong> anchor and support</li></ul></div>
+        <div class="card"><h4>Xylem</h4><p>Dead, lignified cells. Moves <strong>water and minerals mainly upward</strong>. Also provides support.</p></div>
+        <div class="card"><h4>Phloem</h4><p>Living sieve tubes with companion cells. Moves <strong>products of Photosynthesis from source to sink</strong>; bidirectional.</p></div>
+        <div class="card yellow"><h4>Essential element anchors</h4><p><strong>Mg:</strong> chlorophyll<br><strong>N:</strong> growth and chlorophyll<br><strong>P:</strong> ATP and nucleic acids<br><strong>K:</strong> stomata and enzymes<br><strong>Ca:</strong> cell wall and membrane</p></div>
+        <div class="card pink"><h4>Hormone anchors</h4><p><strong>ABA:</strong> stress and stomata<br><strong>Auxin:</strong> cell elongation<br><strong>CK:</strong> cell differentiation<br><strong>ET:</strong> ripening and defense<br><strong>GA:</strong> elongation and germination<br><strong>JA/SA:</strong> defense</p></div>
+        <div class="card sage"><h4>Monocot vs dicot stem</h4><p><strong>Monocot:</strong> vascular bundles scattered.<br><strong>Dicot:</strong> vascular bundles arranged in a ring.</p></div>
+        <div class="card blue"><h4>Biotechnology</h4><p><strong>Agrobacterium tumefaciens</strong> transfers DNA. <strong>Multigene transfer</strong> introduces larger constructs. <strong>Genome editing</strong> deletes, mutates, or integrates a target gene.</p></div>
+      </div>
+    </article>
+
+    <article class="infographic">
+      <div class="info-head"><div class="badge pink">🧬</div><div><h3>Animal Morphology and Physiology</h3><p>Reproduction, gametes, hormones, fertilization, and development</p></div></div>
+      <div class="grid">
+        <div class="card pink"><h4>Asexual Reproduction</h4><p><strong>Regeneration:</strong> replace or form body parts<br><strong>Budding:</strong> outgrowth from parent<br><strong>Parthenogenesis:</strong> unfertilized egg develops</p></div>
+        <div class="card blue"><h4>Sexual Reproduction</h4><p>Haploid gametes combine to form a diploid zygote. <strong>Isogamy</strong> uses similar gametes; <strong>Anisogamy</strong> uses different gametes.</p></div>
+        <div class="card"><h4>Gametogenesis</h4><p><strong>Spermatogenesis:</strong> 4 functional sperm.<br><strong>Oogenesis:</strong> 1 functional ovum plus polar bodies.</p></div>
+        <div class="card yellow"><h4>Hormone control</h4><p><strong>FSH:</strong> sperm production or follicle development.<br><strong>LH:</strong> testosterone production or Ovulation.<br><strong>Estrogen:</strong> endometrium thickening.<br><strong>Progesterone:</strong> maintains endometrium.</p></div>
+        <div class="card sage"><h4>Development sequence</h4><div class="arrowline"><span>Zygote</span><b>›</b><span>Cleavage</span><b>›</b><span>Morula</span><b>›</b><span>Blastula</span><b>›</b><span>Gastrulation</span><b>›</b><span>Organogenesis</span></div></div>
+        <div class="card"><h4>Three germ layers</h4><p><strong>Ectoderm:</strong> epidermis and nervous system<br><strong>Endoderm:</strong> digestive and respiratory linings<br><strong>Mesoderm:</strong> muscle, skeleton, circulation, urogenital system</p></div>
+        <div class="card blue"><h4>Extraembryonic membranes</h4><p><strong>Yolk sac:</strong> nutrients/early blood cells<br><strong>Amnion:</strong> fluid protection<br><strong>Chorion:</strong> exchange/placenta<br><strong>Allantois:</strong> wastes/umbilical vessels</p></div>
+        <div class="card pink"><h4>Birth</h4><p><strong>Dilation → Expulsion → Delivery of placenta.</strong> Labor uses positive feedback: stretching increases contractions, causing more stretching.</p></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="study" class="view">
+    <h2 class="section-title">Tap-next study guide</h2><p class="section-intro">One topic at a time so dili overwhelming. Your last position is saved on this device.</p>
+    <div class="study-wrap">
+      <div class="study-toolbar"><div class="pills" id="unitPills"></div><div class="progress" aria-label="Study progress"><div class="bar" id="studyBar"></div></div><strong id="studyCount"></strong></div>
+      <article class="study-card"><span class="unit-tag" id="studyUnit"></span><h3 id="studyTitle"></h3><div class="meaning" id="studyMeaning"></div><div class="remember"><strong>Remember:</strong> <span id="studyRemember"></span></div><div class="terms"><strong>Important terms:</strong> <span id="studyTerms"></span></div></article>
+      <div class="nav-row"><button class="btn secondary" id="prevStudy">← Previous</button><button class="btn primary" id="nextStudy">Next topic →</button></div>
+    </div>
+  </section>
+
+  <section id="mcq" class="view">
+    <h2 class="section-title">Multiple-choice practice exam</h2><p class="section-intro">45 questions. Choose once; you will immediately see whether you are correct and get the correct answer plus a short explanation.</p>
+    <div class="exam-wrap"><div class="exam-top"><span class="counter" id="mcqCounter">Ready</span><span id="mcqScore">Score 0</span><button class="btn danger" onclick="startMCQ()">Restart</button></div><div class="exam-body" id="mcqBody"></div></div>
+  </section>
+
+  <section id="identification" class="view">
+    <h2 class="section-title">Identification practice exam</h2><p class="section-intro">30 identification items. Capitalization does not matter, and common accepted variations are included.</p>
+    <div class="exam-wrap"><div class="exam-top"><span class="counter" id="idCounter">Ready</span><span id="idScore">Score 0</span><button class="btn danger" onclick="startID()">Restart</button></div><div class="exam-body" id="idBody"></div></div>
+  </section>
+  <p class="footer">Based on the supplied BC 101 lessons. Works without internet after downloading the HTML file.</p>
+</main>
+
+<script>
+const studyTopics=[
+{u:'Energy',t:'ATP and the ATP ADP Cycle',m:'ATP (Adenosine Triphosphate) contains adenine, ribose, and three phosphate groups. ATP hydrolysis releases usable energy, while energy from exergonic reactions supports ATP synthesis.',r:'ATP + H2O produces ADP + Pi + energy. ATP powers mechanical work, transport, and chemical reactions.',k:'ATP, ADP, Pi, hydrolysis, exergonic reactions, endergonic reactions'},
+{u:'Energy',t:'Cellular Respiration overview',m:'Cellular Respiration releases chemical energy stored in food and transfers much of it to ATP. In eukaryotes, it begins in the cytosol and continues in the mitochondria.',r:'Order: Glycolysis → pyruvate oxidation → Krebs Cycle → Electron Transport Chain/System → Chemiosmosis.',k:'Cellular Respiration, cytosol, mitochondrion, ATP'},
+{u:'Energy',t:'Glycolysis',m:'Glycolysis occurs in the cytosol and converts one glucose into two pyruvate. Steps 1 to 5 invest and split; steps 6 to 10 produce NADH and ATP.',r:'Net per glucose: 2 pyruvate, 2 ATP, and 2 NADH.',k:'Hexokinase, Phosphofructokinase, Aldolase, DHAP, GAP, PEP, Pyruvate kinase'},
+{u:'Energy',t:'Pyruvate oxidation',m:'Each pyruvate enters the mitochondrial matrix and is converted to acetyl-CoA. Carbon dioxide is removed and NADH is produced.',r:'Per glucose: 2 acetyl-CoA, 2 CO2, and 2 NADH.',k:'pyruvate, acetyl-CoA, mitochondrial matrix, NADH, CO2'},
+{u:'Energy',t:'Krebs Cycle',m:'Acetyl-CoA combines with oxaloacetate to form citrate. The cycle oxidizes the acetyl group and regenerates oxaloacetate.',r:'Per turn: 3 NADH, 1 FADH2, 1 ATP or GTP, 2 CO2. The cycle turns twice per glucose. No NADPH.',k:'acetyl-CoA, oxaloacetate, citrate, NADH, FADH2, CO2'},
+{u:'Energy',t:'Electron Transport Chain System',m:'NADH and FADH2 donate electrons to protein complexes in the inner mitochondrial membrane. Electron energy pumps H+ into the intermembrane space.',r:'Oxygen is the final electron acceptor. Oxygen, electrons, and H+ form H2O.',k:'Electron Transport Chain/System, NADH, FADH2, oxygen, inner mitochondrial membrane'},
+{u:'Energy',t:'Chemiosmosis',m:'H+ moves down its electrochemical gradient through ATP synthase. ATP synthase couples H+ flow to ATP formation from ADP + Pi.',r:'ETC builds the gradient; Chemiosmosis uses it; ATP synthase makes ATP.',k:'Chemiosmosis, H+ gradient, ATP synthase, proton-motive force'},
+{u:'Energy',t:'Fermentation',m:'When oxygen is unavailable, Fermentation regenerates NAD+ so Glycolysis can continue. It occurs in the cytoplasm and does not add a large ATP yield.',r:'Lactic Acid Fermentation forms lactate. Alcohol Fermentation forms ethanol and CO2.',k:'Fermentation, NAD+, lactate, acetaldehyde, ethanol'},
+{u:'Energy',t:'Photosynthesis',m:'Photosynthesis changes light energy into chemical energy stored in organic molecules. It occurs mainly in chloroplasts of mesophyll cells.',r:'6CO2 + 6H2O + light energy produces C6H12O6 + 6O2.',k:'Photosynthesis, chloroplast, mesophyll, stomata, chlorophyll'},
+{u:'Energy',t:'Light Dependent Reactions',m:'Light Dependent Reactions occur in the thylakoid membrane. Light excites electrons, water is split, an H+ gradient forms, and ATP and NADPH are produced.',r:'Inputs: light, H2O, ADP + Pi, NADP+. Outputs: O2, ATP, NADPH. CO2 is not used directly.',k:'thylakoid membrane, chlorophyll, ATP, NADPH, O2'},
+{u:'Energy',t:'Calvin Cycle',m:'The Calvin Cycle occurs in the stroma. It uses CO2, ATP, and NADPH to produce G3P, which can be used to build glucose and starch.',r:'Three phases: carbon fixation, reduction, regeneration of RuBP. Stroma is the location; stomata are leaf openings.',k:'Calvin Cycle, stroma, RuBisCO, RuBP, 3-PGA, G3P'},
+{u:'Energy',t:'Photosynthesis vs Cellular Respiration',m:'Photosynthesis stores energy and builds organic molecules. Cellular Respiration releases energy from organic molecules and produces ATP.',r:'Photosynthesis uses CO2 and releases O2; aerobic respiration uses O2 and releases CO2.',k:'Autotrophs, Heterotrophs, energy storage, energy release'},
+
+{u:'Plants',t:'Plant water balance',m:'Water moves by osmosis. A plant cell becomes turgid in a hypotonic solution, flaccid in an isotonic solution, and plasmolyzed in a hypertonic solution.',r:'Hypotonic = water enters; isotonic = no net movement; hypertonic = water leaves.',k:'hypotonic, isotonic, hypertonic, turgid, flaccid, plasmolysis'},
+{u:'Plants',t:'Root hairs and Root nodules',m:'Root hairs increase surface area for water and mineral absorption. Root nodules house nitrogen-fixing bacteria that convert nitrogen gas to ammonia.',r:'Root hairs absorb; Root nodules support nitrogen fixation.',k:'Root hairs, Root nodules, symbiosis, nitrogen-fixing bacteria, ammonia'},
+{u:'Plants',t:'Rhizome and Prop roots',m:'A Rhizome is an underground stem that stores starch and protein and supports perennial growth. Prop roots anchor and support plants in unstable or water-logged soil.',r:'Ginger has a Rhizome; mangroves use Prop roots.',k:'Rhizome, starch, protein, perennial growth, Prop roots'},
+{u:'Plants',t:'Xylem',m:'Xylem vessels contain dead, lignified cells connected end to end. Xylem transports water and minerals mainly upward and also provides structural support.',r:'Xylem = water and minerals, mainly upward.',k:'Xylem, lignin, vessel elements, tracheids, transpiration pull'},
+{u:'Plants',t:'Phloem',m:'Phloem contains living sieve-tube elements associated with companion cells. It moves products of Photosynthesis from sources to sinks.',r:'Phloem movement is bidirectional in different sieve tubes.',k:'Phloem, sieve tubes, companion cells, source, sink, translocation'},
+{u:'Plants',t:'Monocot and dicot stems',m:'Monocot stems usually have scattered vascular bundles and limited secondary growth. Dicot stems usually have vascular bundles arranged in a ring.',r:'Monocot = scattered; dicot = ring.',k:'monocot, dicot, vascular bundles, vascular cambium, cortex, pith'},
+{u:'Plants',t:'Plant Nutrition',m:'Plant Nutrition is the supply and absorption of chemical compounds needed for growth and metabolism. Inorganic nutrients come from soil, air, and water.',r:'Elements support structure, enzymes, electron transfer, chlorophyll, ATP processes, and growth.',k:'Plant Nutrition, inorganic nutrients, micronutrients, macronutrients'},
+{u:'Plants',t:'Essential element anchors',m:'Magnesium supports chlorophyll and ATPase. Nitrogen supports growth and chlorophyll. Phosphorus supports ADP-ATP transfer and nucleic acids. Potassium supports stomata and enzyme activity.',r:'Mg = chlorophyll; N = growth; P = energy and nucleic acids; K = stomata; Ca = cell wall and membrane.',k:'Magnesium, Nitrogen, Phosphorus, Potassium, Calcium'},
+{u:'Plants',t:'Plant Hormones',m:'Plant hormones regulate development, signaling networks, stress responses, and defense. Their effects overlap and depend on tissue and environmental conditions.',r:'ABA stress; Auxin elongation; CK differentiation; ET ripening/defense; GA elongation/germination; JA and SA defense.',k:'ABA, Auxin, Brassinosteroids, Cytokinin, Ethylene, Gibberellins, Jasmonic Acid, Salicylic Acid'},
+{u:'Plants',t:'Homeostasis and Feedback',m:'Plants detect internal or environmental change, coordinate responses through signaling networks, and use effectors to alter growth, transport, metabolism, or defense.',r:'Water deficit increases ABA signaling and stomatal closure, reducing water loss through negative feedback.',k:'Homeostasis, negative feedback, stimulus, receptor, signal, effector'},
+{u:'Plants',t:'Plant Biotechnology',m:'Agrobacterium tumefaciens transfers selected DNA into plant cells. Multigene transfer introduces large or multiple DNA constructs. Genome editing deletes, mutates, or integrates a target gene.',r:'Confinement reduces escape of transgenic genes using sterility, gene removal, incompatibility, or removal of selectable markers.',k:'genetic engineering, transgenic crops, Agrobacterium tumefaciens, Multigene transfer, Genome editing, confinement'},
+
+{u:'Animals',t:'Asexual Reproduction',m:'Asexual reproduction usually produces genetically identical offspring without fusion of haploid gametes.',r:'Regeneration forms or replaces tissues; Budding grows an outgrowth; Parthenogenesis develops an unfertilized egg.',k:'Asexual reproduction, Regeneration, Budding, Parthenogenesis, clone'},
+{u:'Animals',t:'Sexual Reproduction terms',m:'Sexual reproduction combines haploid gametes to form a diploid zygote. External fertilization is common in aquatic animals; internal fertilization is common in terrestrial animals.',r:'Isogamy = similar gametes; Anisogamy = different gametes; Protandry = male to female; Protogyny = female to male.',k:'haploid, diploid, zygote, Isogamy, Anisogamy, Protandry, Protogyny'},
+{u:'Animals',t:'Direct and Indirect Development',m:'Indirect Development includes one or more larval forms before adulthood. Direct Development produces offspring that resemble miniature adults.',r:'Butterflies and frogs are indirect; many mammals are direct.',k:'Indirect Development, larva, Direct Development'},
+{u:'Animals',t:'Gonads and Gametogenesis',m:'Gonads are primary sex organs that produce gametes and hormones. The testis is the male gonad; the ovary is the female gonad.',r:'Gametogenesis includes Spermatogenesis and Oogenesis.',k:'Gonads, testis, ovary, Gametogenesis, gametes'},
+{u:'Animals',t:'Spermatogenesis',m:'Primary spermatocytes complete Meiosis I to form secondary spermatocytes. Meiosis II forms spermatids, which differentiate into spermatozoa.',r:'One primary spermatocyte produces four functional sperm in the seminiferous tubules.',k:'spermatogonia, primary spermatocyte, secondary spermatocyte, spermatid, spermatozoa, Sertoli cells'},
+{u:'Animals',t:'Oogenesis',m:'A primary oocyte completes Meiosis I to form a secondary oocyte and first polar body. Fertilization triggers completion of Meiosis II.',r:'One primary oocyte produces one large functional ovum and polar bodies.',k:'oogonia, primary oocyte, secondary oocyte, ovum, polar body'},
+{u:'Animals',t:'Male reproductive system',m:'Testes produce sperm and testosterone. Epididymis stores and matures sperm. Vas deferens transports sperm. Accessory glands add fluids, and the urethra carries semen out.',r:'Route: seminiferous tubules → epididymis → vas deferens → ejaculatory duct → urethra → exterior.',k:'testes, seminiferous tubules, epididymis, vas deferens, seminal vesicles, prostate, urethra'},
+{u:'Animals',t:'Female reproductive system',m:'Ovaries produce oocytes and hormones. Oviducts receive the ovulated secondary oocyte and are the usual site of fertilization. The uterus supports implantation and development.',r:'Ovary → oviduct → uterus. The endometrium is the inner uterine lining.',k:'ovary, follicle, oviduct, uterus, endometrium, cervix, vagina'},
+{u:'Animals',t:'Reproductive hormones',m:'FSH supports sperm production in males and follicle development in females. LH stimulates testosterone production in males and triggers Ovulation in females.',r:'Estrogen thickens the endometrium; Progesterone causes and maintains endometrial thickening.',k:'releasing hormone, FSH, LH, Testosterone, Estrogen, Progesterone'},
+{u:'Animals',t:'Fertilization and Cleavage',m:'Fertilization unites haploid gametes to form a diploid zygote. Cleavage consists of rapid mitotic divisions without overall growth, producing blastomeres.',r:'Continued Cleavage produces the morula; a blastocoel forms as the blastula develops.',k:'Fertilization, Zona pellucida, zygote, Cleavage, blastomeres, morula, blastula, blastocoel'},
+{u:'Animals',t:'Gastrulation and Organogenesis',m:'Gastrulation rearranges the blastula into a three-layered embryo with a primitive gut. Organogenesis forms organs from the germ layers.',r:'Development order: zygote → Cleavage → morula → blastula → Gastrulation → Organogenesis.',k:'Gastrulation, archenteron, triploblastic, Organogenesis, neural tube, notochord, somites'},
+{u:'Animals',t:'Germ layers and membranes',m:'Ectoderm forms epidermis and nervous system. Endoderm forms digestive and respiratory linings. Mesoderm forms muscle, skeleton, circulation, and much of the urogenital system.',r:'Membranes: Yolk sac nourishes; Amnion protects in fluid; Chorion exchanges/contributes placenta; Allantois stores waste or contributes umbilical vessels.',k:'Ectoderm, Endoderm, Mesoderm, Yolk sac, Amnion, Chorion, Allantois'}
+];
+
+const mcq=[
+['Energy','What is the main role of ATP?',['Store genetic information','Serve as the cell\'s energy currency','Carry oxygen','Build cell walls'],'Serve as the cell\'s energy currency','ATP transfers usable energy to cellular work.'],
+['Energy','Where does Glycolysis occur?',['Mitochondrial matrix','Cytosol','Thylakoid membrane','Nucleus'],'Cytosol','Glycolysis occurs in the cytosol of eukaryotic and prokaryotic cells.'],
+['Energy','What is the net ATP yield of Glycolysis per glucose?',['1 ATP','2 ATP','4 ATP','36 ATP'],'2 ATP','Four ATP form, but two were invested, so the net yield is 2 ATP.'],
+['Energy','Which enzyme converts glucose to glucose-6-phosphate?',['Aldolase','Hexokinase','Enolase','Pyruvate kinase'],'Hexokinase','Hexokinase performs the first phosphorylation step.'],
+['Energy','Aldolase splits fructose 1,6-bisphosphate into which products?',['Citrate and oxaloacetate','DHAP and GAP','Pyruvate and lactate','ATP and ADP'],'DHAP and GAP','Aldolase produces the two three-carbon isomers DHAP and GAP.'],
+['Energy','Which molecule enters the Krebs Cycle?',['Glucose','Acetyl-CoA','Lactate','G3P'],'Acetyl-CoA','Acetyl-CoA condenses with oxaloacetate to form citrate.'],
+['Energy','What is regenerated at the end of the Krebs Cycle?',['Pyruvate','Oxaloacetate','Glucose','Acetaldehyde'],'Oxaloacetate','Oxaloacetate must be regenerated for the cycle to continue.'],
+['Energy','Which is produced in one turn of the Krebs Cycle?',['3 NADH, 1 FADH2, 1 ATP/GTP, 2 CO2','2 NADPH and 1 glucose','4 ATP only','Oxygen and water'],'3 NADH, 1 FADH2, 1 ATP/GTP, 2 CO2','This is the yield per acetyl-CoA, or one turn.'],
+['Energy','What is the final electron acceptor in aerobic Cellular Respiration?',['Carbon dioxide','Oxygen','NADH','Pyruvate'],'Oxygen','Oxygen accepts electrons and H+ to form water.'],
+['Energy','Which enzyme directly produces ATP during Chemiosmosis?',['RuBisCO','ATP synthase','Aldolase','Hexokinase'],'ATP synthase','H+ flow through ATP synthase drives ATP production.'],
+['Energy','Why is Fermentation important?',['It creates large amounts of ATP','It regenerates NAD+','It produces oxygen','It begins the Krebs Cycle'],'It regenerates NAD+','Regenerated NAD+ allows Glycolysis to continue.'],
+['Energy','Where do Light Dependent Reactions occur?',['Stroma','Thylakoid membrane','Cytosol','Nucleus'],'Thylakoid membrane','The light-harvesting and electron transport complexes are in the thylakoid membrane.'],
+['Energy','Where does the Calvin Cycle occur?',['Stomata','Stroma','Cristae','Cytosol'],'Stroma','The Calvin Cycle occurs in the chloroplast stroma; stomata are leaf openings.'],
+['Energy','What are the main outputs of the Light Dependent Reactions?',['CO2 and glucose','ATP, NADPH, and O2','NADH and FADH2','Pyruvate and lactate'],'ATP, NADPH, and O2','ATP and NADPH fuel the Calvin Cycle; water splitting releases O2.'],
+['Energy','What is the direct three-carbon sugar product of the Calvin Cycle?',['G3P','RuBP','Pyruvate','Acetyl-CoA'],'G3P','G3P can be used to build glucose, starch, and other molecules.'],
+
+['Plants','What happens to a plant cell in a hypotonic solution?',['It becomes turgid','It undergoes plasmolysis','It becomes flaccid','It loses all solutes'],'It becomes turgid','Water enters, the vacuole expands, and the cell wall prevents bursting.'],
+['Plants','What happens to a plant cell in a hypertonic solution?',['It becomes turgid','It undergoes plasmolysis','It gains water','It divides rapidly'],'It undergoes plasmolysis','Water leaves and the plasma membrane pulls away from the cell wall.'],
+['Plants','What is the main function of Root hairs?',['Store starch','Increase absorption surface area','Produce seeds','Carry sugars'],'Increase absorption surface area','Root hairs increase contact with soil water and minerals.'],
+['Plants','Root nodules commonly support which process?',['Transpiration','Nitrogen fixation','Pollination','Fruit ripening'],'Nitrogen fixation','Symbiotic bacteria convert nitrogen gas into usable nitrogen compounds.'],
+['Plants','Which structure stores starch and protein and permits perennial growth?',['Prop root','Rhizome','Stoma','Root hair'],'Rhizome','Ginger is a common example of a Rhizome.'],
+['Plants','What does Xylem mainly transport?',['Sugars in both directions','Water and minerals mainly upward','Hormones only','Oxygen only'],'Water and minerals mainly upward','Xylem uses dead lignified cells for water and mineral transport.'],
+['Plants','What does Phloem mainly transport?',['Water only','Products of Photosynthesis','Nitrogen gas','Oxygen to roots'],'Products of Photosynthesis','Phloem moves sugars from sources to sinks.'],
+['Plants','How are vascular bundles usually arranged in a monocot stem?',['In a ring','Scattered','Only at the center','Only at the surface'],'Scattered','Monocot vascular bundles are usually scattered through ground tissue.'],
+['Plants','Which element is central to chlorophyll?',['Magnesium','Sodium','Nickel','Chlorine'],'Magnesium','Magnesium is the central atom in chlorophyll and also supports ATPase activity.'],
+['Plants','Which element supports ADP-ATP energy transfer and nucleic acids?',['Phosphorus','Calcium','Zinc','Boron'],'Phosphorus','Phosphorus is part of phosphate groups, nucleic acids, and phospholipids.'],
+['Plants','Which hormone is strongly associated with stomatal closure during water stress?',['Auxin','Abscisic Acid (ABA)','Cytokinin','Gibberellins'],'Abscisic Acid (ABA)','ABA coordinates water-stress responses including stomatal closure.'],
+['Plants','Which hormone commonly stimulates cell elongation?',['Auxin','Salicylic Acid','Abscisic Acid','Ethylene'],'Auxin','Auxin stimulates cell elongation through wall-loosening effects.'],
+['Plants','Which pair is strongly associated with defense against necrotrophic pathogens and herbivores?',['JA and ET','ABA and GA','Auxin and CK','SA and GA'],'JA and ET','Jasmonic Acid and Ethylene are central to these defense responses.'],
+['Plants','What does Agrobacterium tumefaciens do in plant biotechnology?',['Transfers DNA into plant cells','Removes all chlorophyll','Stops water transport','Produces animal gametes'],'Transfers DNA into plant cells','Its natural DNA-transfer ability is used to introduce selected genes.'],
+['Plants','Which process can delete, mutate, or integrate a gene at a target site?',['Transpiration','Genome editing','Germination','Osmosis'],'Genome editing','Genome editing changes DNA at a chosen target.'],
+
+['Animals','Which type of reproduction usually produces clones?',['Sexual reproduction','Asexual reproduction','External fertilization','Anisogamy'],'Asexual reproduction','One parent produces offspring without gamete fusion.'],
+['Animals','Development from an unfertilized egg is called what?',['Budding','Parthenogenesis','Regeneration','Gastrulation'],'Parthenogenesis','Parthenogenesis occurs in aphids, bees, wasps, ants, and some vertebrates.'],
+['Animals','What does Protandry mean?',['Female changes to male','Male changes to female','Gametes are similar','Fertilization is external'],'Male changes to female','Clownfish provide a familiar example of Protandry.'],
+['Animals','What characterizes Indirect Development?',['No embryo forms','A larval stage occurs','Offspring are clones','Only mammals show it'],'A larval stage occurs','One or more larval forms appear before the adult form.'],
+['Animals','Where does Spermatogenesis occur?',['Oviducts','Seminiferous tubules','Endometrium','Corpus luteum'],'Seminiferous tubules','Meiosis produces male gametes in the seminiferous tubules.'],
+['Animals','What is the main role of the epididymis?',['Produce testosterone','Mature and store sperm','Trigger Ovulation','Maintain the endometrium'],'Mature and store sperm','Sperm mature and are stored in the epididymis.'],
+['Animals','Which hormone stimulates the testes to produce Testosterone?',['FSH','LH','Estrogen','Progesterone'],'LH','Luteinizing hormone acts on the testes to stimulate Testosterone production.'],
+['Animals','Which event is triggered by an LH surge in females?',['Menstruation','Ovulation','Implantation','Cleavage'],'Ovulation','The LH surge causes the mature follicle to rupture and release the secondary oocyte.'],
+['Animals','What forms from the ruptured follicle after Ovulation?',['Morula','Corpus luteum','Zona pellucida','Blastocoel'],'Corpus luteum','The Corpus luteum secretes hormones, especially Progesterone.'],
+['Animals','Which is the correct early development order?',['Zygote, Cleavage, morula, blastula, Gastrulation, Organogenesis','Morula, zygote, Organogenesis, Cleavage','Blastula, zygote, Gastrulation, morula','Gastrulation, Cleavage, zygote, morula'],'Zygote, Cleavage, morula, blastula, Gastrulation, Organogenesis','This sequence follows fertilization through formation of germ layers and organs.'],
+['Animals','Which germ layer forms the nervous system?',['Endoderm','Ectoderm','Mesoderm','Chorion'],'Ectoderm','Ectoderm forms the epidermis and nervous system.'],
+['Animals','Which germ layer forms muscle and much of the circulatory system?',['Ectoderm','Endoderm','Mesoderm','Amnion'],'Mesoderm','Mesoderm forms muscle, skeleton, circulation, and much of the urogenital system.'],
+['Animals','Which membrane encloses the embryo in a fluid-filled sac?',['Chorion','Amnion','Allantois','Yolk sac'],'Amnion','The Amnion creates the fluid-filled amniotic sac.'],
+['Animals','Which membrane stores uric acid in a shelled egg?',['Allantois','Amnion','Chorion','Endometrium'],'Allantois','The Allantois stores nitrogenous waste in shelled eggs.'],
+['Animals','Why is labor a positive feedback loop?',['Contractions reduce cervical stretching','Stretching increases contractions, causing more stretching','Hormones stop all contractions','The placenta prevents feedback'],'Stretching increases contractions, causing more stretching','The response amplifies the original stimulus until birth occurs.']
+].map(([u,q,o,a,e])=>({u,q,o,a,e}));
+
+const ids=[
+['Energy','The energy currency of the cell.',['ATP','adenosine triphosphate'],'ATP'],
+['Energy','The initial pathway that splits glucose in the cytosol.',['glycolysis'],'Glycolysis'],
+['Energy','The two-carbon molecule that enters the Krebs Cycle.',['acetyl coa','acetyl-coa','acetyl coenzyme a'],'Acetyl-CoA'],
+['Energy','The four-carbon molecule regenerated by the Krebs Cycle.',['oxaloacetate','oxaloacetic acid'],'Oxaloacetate'],
+['Energy','The enzyme that produces ATP using H+ flow.',['atp synthase'],'ATP synthase'],
+['Energy','The final electron acceptor in aerobic Cellular Respiration.',['oxygen','o2'],'Oxygen'],
+['Energy','The process that uses an H+ gradient to drive ATP production.',['chemiosmosis'],'Chemiosmosis'],
+['Energy','The process that regenerates NAD+ when oxygen is unavailable.',['fermentation'],'Fermentation'],
+['Energy','The chloroplast membrane where Light Dependent Reactions occur.',['thylakoid membrane','thylakoid membranes'],'Thylakoid membrane'],
+['Energy','The fluid region where the Calvin Cycle occurs.',['stroma','chloroplast stroma'],'Stroma'],
+
+['Plants','The condition in which a plant cell becomes turgid.',['hypotonic','hypotonic solution'],'Hypotonic'],
+['Plants','Separation of the plasma membrane from the cell wall after water loss.',['plasmolysis'],'Plasmolysis'],
+['Plants','Structures that increase the root surface area for absorption.',['root hairs','root hair'],'Root hairs'],
+['Plants','Structures that house nitrogen-fixing bacteria.',['root nodules','root nodule'],'Root nodules'],
+['Plants','An underground storage stem exemplified by ginger.',['rhizome'],'Rhizome'],
+['Plants','The tissue that transports water and minerals mainly upward.',['xylem'],'Xylem'],
+['Plants','The tissue that transports products of Photosynthesis from source to sink.',['phloem'],'Phloem'],
+['Plants','The hormone associated with water-stress response and stomatal closure.',['abscisic acid','aba','abscisic acid aba'],'Abscisic Acid (ABA)'],
+['Plants','The hormone that stimulates cell elongation.',['auxin'],'Auxin'],
+['Plants','The bacterium used to transfer DNA into plant cells.',['agrobacterium tumefaciens','a tumefaciens'],'Agrobacterium tumefaciens'],
+
+['Animals','Development of an unfertilized egg.',['parthenogenesis'],'Parthenogenesis'],
+['Animals','A male organism changing to female.',['protandry'],'Protandry'],
+['Animals','The primary male gonad.',['testis','testes'],'Testis'],
+['Animals','The production of male gametes.',['spermatogenesis'],'Spermatogenesis'],
+['Animals','The production of female gametes.',['oogenesis'],'Oogenesis'],
+['Animals','The site of sperm maturation and storage.',['epididymis'],'Epididymis'],
+['Animals','The ovarian structure formed after Ovulation.',['corpus luteum'],'Corpus luteum'],
+['Animals','A solid ball of cells produced by continued Cleavage.',['morula'],'Morula'],
+['Animals','The process that forms three embryonic germ layers.',['gastrulation'],'Gastrulation'],
+['Animals','The extraembryonic membrane that encloses the embryo in fluid.',['amnion'],'Amnion']
+].map(([u,q,a,c])=>({u,q,a,c}));
+
+let selectedUnit='All',studyIndex=Number(localStorage.getItem('bc101StudyIndex')||0),mcqState={},idState={};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function showView(id){$$('.view').forEach(v=>v.classList.toggle('active',v.id===id));$$('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===id));window.scrollTo({top:document.querySelector('.tabs').offsetTop,behavior:'smooth'});}
+$$('.tab').forEach(t=>t.addEventListener('click',()=>showView(t.dataset.view)));
+function filteredTopics(){return selectedUnit==='All'?studyTopics:studyTopics.filter(x=>x.u===selectedUnit)}
+function setupPills(){const box=$('#unitPills');box.innerHTML='';['All','Energy','Plants','Animals'].forEach(u=>{const b=document.createElement('button');b.className='pill'+(u===selectedUnit?' active':'');b.textContent=u;b.onclick=()=>{selectedUnit=u;studyIndex=0;setupPills();renderStudy()};box.appendChild(b)})}
+function renderStudy(){const list=filteredTopics();studyIndex=Math.max(0,Math.min(studyIndex,list.length-1));const x=list[studyIndex];$('#studyUnit').textContent=x.u;$('#studyTitle').textContent=x.t;$('#studyMeaning').textContent=x.m;$('#studyRemember').textContent=x.r;$('#studyTerms').textContent=x.k;$('#studyCount').textContent=`${studyIndex+1} / ${list.length}`;$('#studyBar').style.width=`${(studyIndex+1)/list.length*100}%`;$('#prevStudy').disabled=studyIndex===0;$('#nextStudy').textContent=studyIndex===list.length-1?'Start again ↻':'Next topic →';localStorage.setItem('bc101StudyIndex',studyIndex)}
+$('#prevStudy').onclick=()=>{studyIndex--;renderStudy()};$('#nextStudy').onclick=()=>{const n=filteredTopics().length;studyIndex=studyIndex===n-1?0:studyIndex+1;renderStudy()};setupPills();renderStudy();
+function shuffled(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1])}
+function startMCQ(){mcqState={list:shuffled([...mcq]),i:0,score:0,locked:false};renderMCQ()}
+function renderMCQ(){const s=mcqState,body=$('#mcqBody');$('#mcqScore').textContent=`Score ${s.score}`;if(s.i>=s.list.length){const pct=Math.round(s.score/s.list.length*100);localStorage.setItem('bc101MCQBest',Math.max(pct,Number(localStorage.getItem('bc101MCQBest')||0)));$('#mcqCounter').textContent='Complete';body.innerHTML=`<div class="score-card"><div class="big">${pct}%</div><h3>${pct>=80?'Very good! 🌟':pct>=60?'Good progress 🌱':'Review then try again 💛'}</h3><p>You got ${s.score} out of ${s.list.length}. Best score on this device: ${localStorage.getItem('bc101MCQBest')}%.</p><button class="btn primary" onclick="startMCQ()">Take another shuffled exam</button></div>`;return}const x=s.list[s.i];$('#mcqCounter').textContent=`Question ${s.i+1} of ${s.list.length} · ${x.u}`;body.innerHTML=`<div class="question">${x.q}</div><div class="options"></div><div class="feedback" id="mcqFeedback" aria-live="polite"></div><button class="btn primary hide" id="mcqNext">Next question →</button>`;const box=body.querySelector('.options');x.o.forEach(opt=>{const b=document.createElement('button');b.className='option';b.textContent=opt;b.onclick=()=>answerMCQ(b,opt);box.appendChild(b)});$('#mcqNext').onclick=()=>{s.i++;s.locked=false;renderMCQ()}}
+function answerMCQ(btn,opt){const s=mcqState;if(s.locked)return;s.locked=true;const x=s.list[s.i],good=opt===x.a;if(good)s.score++;$$('#mcqBody .option').forEach(b=>{b.disabled=true;if(b.textContent===x.a)b.classList.add('correct')});if(!good)btn.classList.add('wrong');const f=$('#mcqFeedback');f.className='feedback show '+(good?'good':'bad');f.innerHTML=good?`<strong>Correct!</strong> ${x.e}`:`<strong>Not quite.</strong> The correct answer is <strong>${x.a}</strong>. ${x.e}`;$('#mcqScore').textContent=`Score ${s.score}`;$('#mcqNext').classList.remove('hide')}
+function norm(s){return s.toLowerCase().trim().replace(/[–—-]/g,' ').replace(/[^a-z0-9+ ]/g,'').replace(/\s+/g,' ')}
+function startID(){idState={list:shuffled([...ids]),i:0,score:0,locked:false};renderID()}
+function renderID(){const s=idState,body=$('#idBody');$('#idScore').textContent=`Score ${s.score}`;if(s.i>=s.list.length){const pct=Math.round(s.score/s.list.length*100);localStorage.setItem('bc101IDBest',Math.max(pct,Number(localStorage.getItem('bc101IDBest')||0)));$('#idCounter').textContent='Complete';body.innerHTML=`<div class="score-card"><div class="big">${pct}%</div><h3>${pct>=80?'Excellent recall! 🌟':pct>=60?'Nice work 🌱':'One more round 💛'}</h3><p>You got ${s.score} out of ${s.list.length}. Best score on this device: ${localStorage.getItem('bc101IDBest')}%.</p><button class="btn primary" onclick="startID()">Take another shuffled exam</button></div>`;return}const x=s.list[s.i];$('#idCounter').textContent=`Item ${s.i+1} of ${s.list.length} · ${x.u}`;body.innerHTML=`<div class="question">${x.q}</div><form class="id-input" id="idForm"><input id="idAnswer" autocomplete="off" placeholder="Type your answer…" aria-label="Identification answer"><button class="btn primary">Check answer</button></form><div class="feedback" id="idFeedback" aria-live="polite"></div><button class="btn primary hide" id="idNext">Next item →</button>`;$('#idForm').onsubmit=e=>{e.preventDefault();answerID()};$('#idNext').onclick=()=>{s.i++;s.locked=false;renderID()};setTimeout(()=>$('#idAnswer').focus(),50)}
+function answerID(){const s=idState;if(s.locked)return;const x=s.list[s.i],raw=$('#idAnswer').value;if(!raw.trim())return;s.locked=true;const good=x.a.map(norm).includes(norm(raw));if(good)s.score++;$('#idAnswer').disabled=true;const f=$('#idFeedback');f.className='feedback show '+(good?'good':'bad');f.innerHTML=good?`<strong>Correct!</strong> The answer is <strong>${x.c}</strong>.`:`<strong>Not quite.</strong> The correct answer is <strong>${x.c}</strong>.`;$('#idScore').textContent=`Score ${s.score}`;$('#idNext').classList.remove('hide')}
+async function downloadOffline(){try{const html='<!doctype html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='BC101_Offline_Study_Hub.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}catch(e){alert('Use your browser menu and choose Save or Download this page for offline use.')}}
+startMCQ();startID();
+</script>
+</body>
+</html>
